@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naveen Times</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#191B20;--red:#E50916;--mut:#6b6f78;--line:#e6e7ea;--soft:#f5f5f6;--f:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1013;--fg:#f2f2f3;--mut:#9a9ea8;--line:#26282e;--soft:#18191d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1013;--fg:#f2f2f3;--mut:#9a9ea8;--line:#26282e;--soft:#18191d;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);line-height:1.55;animation:fi .7s ease both;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit;text-decoration:none;cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);transition:padding .3s,box-shadow .3s;padding:16px 0}
+header.sm{padding:8px 0;box-shadow:0 1px 0 var(--line)}
+.w{max-width:1180px;margin:0 auto;padding:0 20px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{height:40px;width:auto;transition:height .3s}header.sm .brand svg{height:30px}
+.bn{font-weight:800;font-size:21px;letter-spacing:.02em;line-height:1}
+.bt{display:block;color:var(--red);font-weight:700;font-size:10px;letter-spacing:.5em;margin-top:5px}
+.date{color:var(--mut);font-size:13px}
+.tick{display:flex;align-items:center;background:var(--fg);color:var(--bg);margin:20px 0;border-radius:6px;overflow:hidden}
+.tick b{background:var(--red);color:#fff;padding:10px 14px;font-size:12px;letter-spacing:.12em;flex:none}
+.tr{overflow:hidden;flex:1}.tt{display:flex;gap:48px;width:max-content;padding:0 24px;animation:mq 40s linear infinite;font-size:14px;font-weight:500}
+.tt a{white-space:nowrap}.tick:hover .tt{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:4px 0 16px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+.cats a{flex:none;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;transition:all .25s}
+.cats a:hover{border-color:var(--red);color:var(--red)}.cats a.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}.rv.in{opacity:1;transform:none}
+.hm,.cm{overflow:hidden;background:var(--fg);aspect-ratio:16/9;border-radius:10px}
+.hm img,.cm img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.hero:hover img,.card:hover img{transform:scale(1.05)}
+.ph{width:100%;height:100%;display:grid;place-items:center;color:var(--red);font-weight:800;font-size:56px;letter-spacing:-.03em}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;cursor:pointer;margin-bottom:40px}
+.hb h1{font-size:clamp(26px,3.6vw,42px);line-height:1.15;margin:12px 0;letter-spacing:-.02em}
+.hb p{color:var(--mut);margin:0 0 14px}
+.tag{color:var(--red);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+small{color:var(--mut);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:28px}
+.card{cursor:pointer}.card h3{font-size:18px;line-height:1.3;margin:12px 0 8px;transition:color .25s}.card:hover h3{color:var(--red)}
+.card p{margin:0 0 8px;color:var(--mut);font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.empty{padding:80px 0;text-align:center;color:var(--mut)}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ov{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:flex;justify-content:center;align-items:flex-end;animation:fi .3s both}
+.sh{background:var(--bg);width:100%;max-width:820px;max-height:94vh;overflow:auto;border-radius:16px 16px 0 0;padding:24px 24px calc(32px + env(safe-area-inset-bottom,0px));animation:up .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.sh h2{font-size:clamp(24px,4vw,36px);line-height:1.2;margin:10px 0;letter-spacing:-.02em}
+.sh .cm{margin:18px 0}.sh p{font-size:17px;margin:0 0 16px}
+.x{float:right;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;transition:all .2s}.x:hover{background:var(--red);color:#fff;border-color:var(--red);transform:rotate(90deg)}
+.yt{aspect-ratio:16/9;width:100%;border:0;border-radius:10px;margin:8px 0 18px;background:#000}
+.btn{display:inline-block;background:var(--red);color:#fff;border:0;border-radius:8px;padding:11px 20px;font:700 14px var(--f);cursor:pointer;transition:transform .2s,opacity .2s}.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn.g{background:transparent;color:var(--fg);border:1px solid var(--line)}.btn.s{padding:6px 12px;font-size:12px}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+#admin{position:fixed;top:0;right:0;bottom:0;width:min(100%,460px);background:var(--bg);z-index:60;border-left:1px solid var(--line);overflow:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+#admin.open{transform:none}
+#admin h3{margin:0 0 4px}#admin label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px;color:var(--mut)}
+#admin input,#admin select,#admin textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--fg);font:500 14px var(--f)}
+#admin input:focus,#admin select:focus,#admin textarea:focus{outline:2px solid var(--red);outline-offset:-1px}
+#admin textarea{min-height:110px;resize:vertical}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chk{display:flex!important;align-items:center;gap:8px;color:var(--fg)!important}.chk input{width:auto}
+.li{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.pv{max-width:100%;max-height:120px;border-radius:8px;margin-top:8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.dot{color:var(--red);font-size:12px;font-weight:700}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:8px;font-size:13px;z-index:80;animation:up .3s both}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:16px}.date{display:none}.bn{font-size:18px}.ov{align-items:flex-end}}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="w hd">
+<a class="brand" data-c="All" aria-label="Naveen Times home">
+<svg viewBox="250 70 620 380" aria-hidden="true"><path fill="var(--fg)" d="M260,440 V80 H350 L480,285 V80 H560 V440 H470 L340,235 V440 Z"/><path fill="#E50916" stroke="var(--bg)" stroke-width="10" d="M440,80 H770 L735,160 H400 Z"/><path fill="#E50916" d="M610,160 H690 V400 L650,440 H610 Z"/><g stroke="#E50916" stroke-width="9"><line x1="815" y1="80" x2="780" y2="160"/><line x1="833" y1="100" x2="807" y2="160"/><line x1="851" y1="120" x2="834" y2="160"/></g></svg>
+<div><div class="bn">NAVEEN</div><span class="bt">TIMES</span></div></a>
+<div class="date" id="dt"></div>
+</div></header>
+<main class="w" id="app"></main>
+<div id="view"></div>
+<aside id="admin" aria-label="Admin panel"></aside>
+<script type="application/json" id="data">[{"id":"s1","title":"Welcome to Naveen Times: your first sample story","cat":"India","sum":"This is a sample story. Open the Admin panel to edit or delete it and post your own news.","body":"This is placeholder text. Replace it with your own reporting.\nAdd paragraphs by pressing Enter. You can attach an image, a YouTube video and a source link to every story.","img":"","yt":"","link":"","breaking":true,"featured":true,"ts":1790000000000},{"id":"s2","title":"Sample: how to add a YouTube video to a story","cat":"Tech","sum":"Paste any YouTube link in the admin form and the video appears inside the story.","body":"Paste a youtube.com or youtu.be link into the video field and publish.","img":"","yt":"","link":"","breaking":false,"featured":false,"ts":1789990000000},{"id":"s3","title":"Sample: publish your changes to go live","cat":"World","sum":"Edits stay private until you press Publish changes in the admin panel.","body":"After you press Publish changes, everyone with the link sees the updated site.","img":"","yt":"","link":"","breaking":false,"featured":false,"ts":1789980000000}]</script>
+<script>
+const CATS=['All','India','World','Politics','Business','Sports','Tech','Entertainment'];
+let posts=JSON.parse(document.getElementById('data').textContent),cat='All',eid=null,dirty=false,can=false,io;
+const $=s=>document.querySelector(s),esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ytid=u=>{const m=String(u||'').match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:''};
+const url=u=>/^https?:\/\//i.test(u||'')?u:'';
+const img=u=>/^(\/_blob\/|data:image\/|https:\/\/)/.test(u||'')?u:'';
+const fmt=t=>new Date(t).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+const media=p=>img(p.img)?`<img src="${esc(img(p.img))}" alt="" loading="lazy">`:`<div class="ph">NT</div>`;
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2600)}
+function render(){
+ const all=[...posts].sort((a,b)=>b.ts-a.ts),vis=cat==='All'?all:all.filter(p=>p.cat===cat);
+ const h=vis.find(p=>p.featured)||vis[0],rest=vis.filter(p=>p!==h),br=all.filter(p=>p.breaking);
+ $('#app').innerHTML=(br.length?`<div class="tick"><b>BREAKING</b><div class="tr"><div class="tt">${[...br,...br].map(p=>`<a data-o="${p.id}">${esc(p.title)}</a>`).join('')}</div></div></div>`:'<div style="height:20px"></div>')
+ +`<nav class="cats">${CATS.map(c=>`<a data-c="${c}" class="${c===cat?'on':''}">${c}</a>`).join('')}</nav>`
+ +(h?`<article class="hero rv" data-o="${h.id}"><div class="hm">${media(h)}</div><div class="hb"><span class="tag">${esc(h.cat)}</span><h1>${esc(h.title)}</h1><p>${esc(h.sum)}</p><small>${fmt(h.ts)}</small></div></article>`:'<p class="empty">No stories in this section yet.</p>')
+ +`<div class="grid">${rest.map((p,i)=>`<article class="card rv" style="--d:${i%3*90}ms" data-o="${p.id}"><div class="cm">${media(p)}</div><span class="tag" style="display:block;margin-top:12px">${esc(p.cat)}</span><h3>${esc(p.title)}</h3><p>${esc(p.sum)}</p><small>${fmt(p.ts)}</small></article>`).join('')}</div>`
+ +`<footer><span>© ${new Date().getFullYear()} Naveen Times</span><span>News that moves with you</span></footer>`;
+ io&&io.disconnect();io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.08});
+ document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+}
+function open_(id){
+ const p=posts.find(x=>x.id===id);if(!p)return;const y=ytid(p.yt),l=url(p.link);
+ $('#view').innerHTML=`<div class="ov" data-close><div class="sh"><button class="x" data-close aria-label="Close">✕</button><span class="tag">${esc(p.cat)}</span><h2>${esc(p.title)}</h2><small>${fmt(p.ts)}</small>
+ ${img(p.img)?`<div class="cm"><img src="${esc(img(p.img))}" alt=""></div>`:''}
+ ${y?`<iframe class="yt" src="https://www.youtube-nocookie.com/embed/${y}" title="Video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe><p><a class="btn g s" href="https://www.youtube.com/watch?v=${y}" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>`:''}
+ ${String(p.body||p.sum).split(/\n+/).map(t=>`<p>${esc(t)}</p>`).join('')}
+ ${l?`<a class="btn" href="${esc(l)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>`:''}</div></div>`;
+ document.body.classList.add('lock');
+}
+function close_(){$('#view').innerHTML='';document.body.classList.remove('lock')}
+document.addEventListener('click',e=>{
+ const t=e.target;
+ if(t.closest('.sh')&&!t.closest('.x')&&!t.hasAttribute('data-close'))return;
+ if(t.closest('[data-close]')){close_();return}
+ const c=t.closest('[data-c]');if(c){cat=c.dataset.c;render();window.scrollTo({top:0,behavior:'smooth'});return}
+ const o=t.closest('[data-o]');if(o)open_(o.dataset.o);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){close_();$('#admin').classList.remove('open')}});
+addEventListener('scroll',()=>document.querySelector('header').classList.toggle('sm',scrollY>20),{passive:true});
+$('#dt').textContent=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+/* ---------- Admin ---------- */
+function adminUI(){
+ const p=posts.find(x=>x.id===eid)||{cat:'India'};
+ const list=[...posts].sort((a,b)=>b.ts-a.ts);
+ $('#admin').innerHTML=`<div class="top"><h3>Admin panel</h3><button class="x" id="ax" aria-label="Close">✕</button></div>
+ <div class="row"><button class="btn" id="pub">Publish changes</button>${dirty?'<span class="dot">● Unpublished changes</span>':'<small>All changes published</small>'}</div>
+ <label>${eid?'EDIT STORY':'NEW STORY'}</label>
+ <input id="f_t" placeholder="Headline" value="${esc(p.title)}">
+ <label>CATEGORY</label><select id="f_c">${CATS.slice(1).map(c=>`<option ${c===p.cat?'selected':''}>${c}</option>`).join('')}</select>
+ <label>SHORT SUMMARY</label><input id="f_s" placeholder="One or two lines" value="${esc(p.sum)}">
+ <label>FULL STORY (Enter = new paragraph)</label><textarea id="f_b">${esc(p.body)}</textarea>
+ <label>IMAGE</label><input type="file" id="f_i" accept="image/*"><input type="hidden" id="f_img" value="${esc(p.img)}">${img(p.img)?`<img class="pv" src="${esc(p.img)}" alt="">`:''}
+ <label>YOUTUBE LINK (optional)</label><input id="f_y" placeholder="https://youtu.be/..." value="${esc(p.yt)}">
+ <label>SOURCE / EXTERNAL LINK (optional)</label><input id="f_l" placeholder="https://..." value="${esc(p.link)}">
+ <label class="chk"><input type="checkbox" id="f_br" ${p.breaking?'checked':''}> Show in breaking-news ticker</label>
+ <label class="chk"><input type="checkbox" id="f_ft" ${p.featured?'checked':''}> Feature as top story</label>
+ <div class="row" style="margin-top:14px"><button class="btn" id="sv">${eid?'Save changes':'Add story'}</button>${eid?'<button class="btn g" id="nw">Cancel edit</button>':''}</div>
+ <label style="margin-top:26px">ALL STORIES (${list.length})</label>
+ ${list.map(x=>`<div class="li"><span>${esc(x.title)}</span><button class="btn g s" data-e="${x.id}">Edit</button><button class="btn g s" data-d="${x.id}">Delete</button></div>`).join('')}`;
+ $('#ax').onclick=()=>$('#admin').classList.remove('open');
+ $('#pub').onclick=publish;$('#sv').onclick=save;
+ if($('#nw'))$('#nw').onclick=()=>{eid=null;adminUI()};
+ $('#f_i').onchange=async e=>{const f=e.target.files[0];if(!f)return;
+  try{const a=await claude.use('assets');if(!a){toast('Image upload is unavailable');return}
+   toast('Uploading…');const r=await a.upload(f);$('#f_img').value=r.url;toast('Image added. Now save the story.')}catch(x){toast('Upload failed')}};
+ $('#admin').querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{eid=b.dataset.e;adminUI();$('#admin').scrollTo({top:0,behavior:'smooth'})});
+ $('#admin').querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{
+  if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='Sure?';setTimeout(()=>{b.dataset.s='';b.textContent='Delete'},2500);return}
+  posts=posts.filter(x=>x.id!==b.dataset.d);if(eid===b.dataset.d)eid=null;dirty=true;render();adminUI()});
+}
+function save(){
+ const t=$('#f_t').value.trim();if(!t){toast('Please add a headline');return}
+ const o={title:t,cat:$('#f_c').value,sum:$('#f_s').value.trim(),body:$('#f_b').value.trim(),img:$('#f_img').value,yt:$('#f_y').value.trim(),link:$('#f_l').value.trim(),breaking:$('#f_br').checked,featured:$('#f_ft').checked};
+ if(o.featured)posts.forEach(x=>x.featured=false);
+ if(eid)Object.assign(posts.find(x=>x.id===eid),o);else posts.push({id:Date.now().toString(36),ts:Date.now(),...o});
+ eid=null;dirty=true;render();adminUI();toast('Saved. Press Publish changes to go live.');
+}
+async function publish(){
+ try{const a=await claude.use('artifact');if(!a){toast('Publishing is unavailable here');return}
+  const c=document.documentElement.cloneNode(true);
+  ['#app','#view','#admin'].forEach(s=>{const n=c.querySelector(s);n.innerHTML='';n.removeAttribute('class')});
+  c.querySelector('body').className='';c.querySelector('header').className='';
+  c.querySelector('#data').textContent=JSON.stringify(posts).replace(/</g,'\\u003c');
+  c.querySelectorAll('.toast,.fab').forEach(n=>n.remove());
+  toast('Publishing…');await a.publish('<!doctype html>\n'+c.outerHTML);
+ }catch(x){toast('Could not publish: '+(x&&x.code||'error'))}
+}
+const PH='b1f829e8999fce4dcb0152d6adc4c29d6718ef68688399545c1d3228c1a6343e';let unlocked=false;
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function gate(){
+ $('#view').innerHTML=`<div class="ov" data-close><div class="sh" style="max-width:380px;border-radius:16px;margin:auto"><button class="x" data-close aria-label="Close">✕</button><h3 style="margin:0 0 4px">Admin login</h3><small>Enter your admin password</small><div style="margin:16px 0"><input id="pw" type="password" autocomplete="current-password" placeholder="Password" style="width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--fg);font:500 15px var(--f)"></div><button class="btn" id="pgo">Unlock</button> <small id="pe" style="color:var(--red)"></small></div></div>`;
+ document.body.classList.add('lock');
+ const go=async()=>{let ok=false;try{ok=(await sha($('#pw').value))===PH}catch(e){}
+  if(ok){unlocked=true;close_();adminUI();requestAnimationFrame(()=>$('#admin').classList.add('open'))}else{$('#pe').textContent='Wrong password';$('#pw').value=''}};
+ $('#pgo').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};setTimeout(()=>$('#pw').focus(),50);
+}
+function showAdmin(){
+ const b=document.createElement('button');b.className='btn fab';b.textContent='⚙ Admin';
+ b.onclick=()=>{if(!unlocked){gate();return}adminUI();requestAnimationFrame(()=>$('#admin').classList.add('open'))};document.body.append(b);
+}
+render();
+if(window.claude&&claude.use)claude.use('user').then(u=>{if(u&&u.canEdit()){can=true;showAdmin()}}).catch(()=>{});
+</script>
+</body>
+</html>
